@@ -1,0 +1,26 @@
+<template name="record">
+    <table class="hoverable bordered">
+        <thead>
+        <tr>
+            <th>用户名</th>
+            <th>PIN码</th>
+            <th>接口名称</th>
+            <th>结果</th>
+            <th>时间戳</th>
+            <th>时间间隔</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each records}}
+        <tr>
+            <td>{{username}}</td>
+            <td>{{pin}}</td>
+            <td>{{apiname}}</td>
+            <td>{{res}}</td>
+            <td>{{timeStamp}}</td>
+            <td>{{timeInterval}}</td>
+        </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</template>

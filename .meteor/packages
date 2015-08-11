@@ -5,5 +5,17 @@
 # but you can also edit it by hand.
 
 meteor-platform
-autopublish
-insecure
+cfs:standard-packages
+cfs:gridfs
+nimble:restivus
+peerlibrary:xml2js
+jparker:crypto-base64
+materialize:materialize
+accounts-password
+iron:router
+aldeed:collection2
+planettraining:material-design-icons-font
+http
+alanning:roles
+cfs:ejson-file
+reactive-var

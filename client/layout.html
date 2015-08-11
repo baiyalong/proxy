@@ -1,0 +1,25 @@
+<template name="layout">
+    <!-- Navbar goes here -->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center"></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li class="waves-effect"><a href="/user">用户</a></li>
+                    <li class="waves-effect"><a href="/cert">证书</a></li>
+                    <li class="waves-effect"><a href="/record">日志</a></li>
+                </ul>
+                <ul class="right hide-on-med-and-down">
+                    <li class="waves-effect"><a>{{username}}</a></li>
+                    <li id="logout" class="waves-effect"><a>{{logout}}</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Page Layout here -->
+    <div class="row">
+        <!-- Teal page content  -->
+        <div>{{>yield}}</div>
+    </div>
+
+</template>
