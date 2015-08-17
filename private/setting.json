@@ -1,0 +1,5 @@
+{
+  "RA_CertApply_Addr": "http://124.207.215.118:8680/chdra/httpinterface/UserCertApply",
+  "RA_CertApply_Param": "applyInfo",
+  "RA_CertApply_Method": "POST"
+}
