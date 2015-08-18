@@ -33,7 +33,6 @@ coffeescript@1.0.6
 ddp@1.1.0
 deps@1.0.7
 ejson@1.0.6
-ekate:openssl-wrapper-wrapper@0.2.1
 email@1.0.6
 fastclick@1.0.3
 geojson-utils@1.0.3
@@ -49,8 +48,6 @@ iron:location@1.0.9
 iron:middleware-stack@1.0.9
 iron:router@1.0.9
 iron:url@1.0.9
-jparker:crypto-base64@0.1.0
-jparker:crypto-core@0.1.0
 jquery@1.11.3_2
 json@1.0.3
 launch-screen@1.0.2
@@ -69,8 +66,6 @@ nimble:restivus@0.8.2
 npm-bcrypt@0.7.8_2
 observe-sequence@1.0.6
 ordered-dict@1.0.3
-peerlibrary:blocking@0.5.2
-peerlibrary:xml2js@0.4.8_1
 planettraining:material-design-icons-font@2.0.0_1
 raix:eventemitter@0.1.3
 random@1.0.3

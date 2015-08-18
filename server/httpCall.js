@@ -7,7 +7,8 @@ var setting = JSON.parse(Assets.getText("setting.json"));
 var getResFromXML = function (xml, tag) {
     return xml.substring(xml.indexOf(tag) + tag.length, xml.indexOf(tag.replace('<', '</')));
 }
-var call_RA_CertApply = function (req) {
+
+call_RA_CertApply = function (req) {
     var xml = "<body><paperType></paperType><paperNum></paperNum><userName>username</userName><certPasscode>pin</certPasscode></body>";
     var message = xml.replace('username', req.username).replace('pin', req.pin);
     var addr = setting.RA_CertApply_Addr;
@@ -16,8 +17,6 @@ var call_RA_CertApply = function (req) {
     var result = HTTP.call(method, addr + '?' + query, {
         npmRequestOptions: {rejectUnauthorized: false},
     });
-
-    console.log(result)
 
     var resp = {};
     if (result != null && result.statusCode == 200) {
