@@ -21,6 +21,7 @@ Template.cert.events({
     'click #save': function () {
         var username = $('#username').val().trim();
         var pin = $('#pin').val().trim();
+        var certSN = $('#certSN').val().trim();
         var file = fileS;
         var id = $('#topic').attr('_id');
 
@@ -32,12 +33,15 @@ Template.cert.events({
             alert('PIN码不能为空！');
             return;
         }
-
+        if (certSN == '') {
+            alert('证书序列号不能为空！');
+            return;
+        }
+        if (file == null) {
+            alert('证书文件不能为空！');
+            return;
+        }
         if (!id) {
-            if (file == null) {
-                alert('证书文件不能为空！');
-                return;
-            }
             Meteor.call('checkCert', username, function (err, res) {
                 if (err)alert(err);
                 else {
@@ -48,7 +52,8 @@ Template.cert.events({
                         var newFile = new FS.File(file);
                         newFile.metadata = {
                             username: username,
-                            pin: pin
+                            pin: pin,
+                            certSN: certSN
                         };
                         Certs.insert(newFile, function (err, fileObj) {
                             if (err)alert(err);
@@ -60,33 +65,23 @@ Template.cert.events({
                 }
             });
         } else {
-            if (file != null) {
-                Certs.remove({_id: id}, function (err) {
-                    if (err)alert(err);
-                    else {
-                        var newFile = new FS.File(file);
-                        newFile.metadata = {
-                            username: username,
-                            pin: pin
-                        };
-                        Certs.insert(newFile, function (err, fileObj) {
-                            if (err)alert(err);
-                            else
-                                Materialize.toast(' 修改成功！', 4000)
-                            //Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
-                        });
-                    }
-                });
-            }
-            else {
-                Certs.update({_id: id}, {
-                    $set: {'metadata.pin': pin}
-                }, function (err) {
-                    if (err) alert(err);
-                    else
-                        Materialize.toast(' 修改成功！', 4000)
-                });
-            }
+            Certs.remove({_id: id}, function (err) {
+                if (err)alert(err);
+                else {
+                    var newFile = new FS.File(file);
+                    newFile.metadata = {
+                        username: username,
+                        pin: pin,
+                        certSN: certSN
+                    };
+                    Certs.insert(newFile, function (err, fileObj) {
+                        if (err)alert(err);
+                        else
+                            Materialize.toast(' 修改成功！', 4000)
+                        //Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+                    });
+                }
+            });
         }
     },
     'click .add': function () {
@@ -94,6 +89,7 @@ Template.cert.events({
         $('#username').val('');
         $('#username').attr('disabled', false);
         $('#pin').val('');
+        $('#certSN').val('');
         $('#topic').text('添加证书');
         $('#topic').attr('_id', null);
         $('input.file-path').val('');
@@ -105,6 +101,7 @@ Template.cert.events({
         $('#username').val(this.metadata.username);
         $('#username').attr('disabled', true);
         $('#pin').val(this.metadata.pin);
+        $('#certSN').val(this.metadata.certSN);
         $('input.file-path').val(this.name());
         $('#modal1').openModal();
     },

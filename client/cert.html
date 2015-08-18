@@ -16,6 +16,10 @@
                         <input class="validate" type="text" id="pin"/>
                         <label class="active" for="pin">PIN码</label>
                     </div>
+                    <div class="input-field row">
+                        <input class="validate" type="text" id="certSN"/>
+                        <label class="active" for="certSN">证书序列号</label>
+                    </div>
                     <div class="file-field input-field row">
                         <input class="file-path validate col s9" type="text"/>
 
@@ -38,6 +42,7 @@
         <tr>
             <th>用户名</th>
             <th>PIN码</th>
+            <th>证书序列号</th>
             <th>地址</th>
             <th>操作</th>
         </tr>
@@ -47,6 +52,7 @@
         <tr>
             <td>{{metadata.username}}</td>
             <td>{{metadata.pin}}</td>
+            <td>{{metadata.certSN}}</td>
             <td>{{getPath url}}</td>
             <td>
                 <a class="edit waves-effect btn-floating"><i class="material-icons">edit</i></a>

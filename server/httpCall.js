@@ -35,6 +35,6 @@ var call_RA_CertApply = function (req) {
 }
 
 
-var cert = call_RA_CertApply({username: 'guogaolei', pin: '123'})
+//var cert = call_RA_CertApply({username: 'guogaolei', pin: '123'})
 
-console.log(cert)
+//console.log(cert)
